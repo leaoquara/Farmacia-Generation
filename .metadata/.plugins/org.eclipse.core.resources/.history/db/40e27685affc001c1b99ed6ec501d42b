@@ -1,0 +1,25 @@
+package br.com.farmacia.farmacia.model;
+
+import java.util.Date;
+
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@Entity      
+@Table(name = "tb_Produto")
+public class Produto {
+
+	private long codigo;
+	private String nome;
+	private String marca;
+	
+	
+	private Date validade;
+	
+	@ManyToOne
+	@JsonIgnoreProperties("tb_Produto")
+	private Categoria categoria;
+}
